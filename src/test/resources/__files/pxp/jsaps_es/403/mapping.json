@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPattern": "/pxp/jsaps_es"
+  },
+  "response": {
+    "status": 403,
+    "bodyFileName": "jsaps_es.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

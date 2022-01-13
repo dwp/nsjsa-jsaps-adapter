@@ -1,0 +1,12 @@
+{
+  "success": [
+    {
+      "path": "/jsaps/v1/claim/{{request.path.[2]}}",
+      "data": "Just a warning"
+    },
+    {
+      "path": "/jsaps/v1/claim/{{request.path.[2]}}",
+      "data": "Just a warning"
+    }
+  ]
+}

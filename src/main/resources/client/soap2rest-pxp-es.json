@@ -1,0 +1,558 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Provides a JSON wrapper to the XML based legacy PXP service 'PushESJSAPSClaim'",
+    "version": "1.0.0",
+    "title": "soap2rest-pxp-es"
+  },
+  "host": "0.0.0.0:8043",
+  "tags": [
+    {
+      "name": "pxp/es"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/pxp/es": {
+      "post": {
+        "tags": [
+          "pxp/es"
+        ],
+        "summary": "Provides a JSON wrapper to the XML based legacy PXP service 'PushESJSAPSClaim'",
+        "operationId": "route1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          },
+          "500": {
+            "description": "Error Response",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "RequestParamsType": {
+      "type": "object",
+      "properties": {
+        "param": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Param"
+          }
+        }
+      }
+    },
+    "ExemptionPeriod": {
+      "type": "object",
+      "properties": {
+        "jobseekerId": {
+          "type": "string",
+          "xml": {
+            "name": "jobseeker-id"
+          }
+        },
+        "exemptionPeriodStartDate": {
+          "type": "string",
+          "xml": {
+            "name": "exemption-period-start-date"
+          }
+        },
+        "exemptionPeriodEndDate": {
+          "type": "string",
+          "xml": {
+            "name": "exemption-period-end-date"
+          }
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "ClaimDetails": {
+      "type": "object",
+      "properties": {
+        "eventType": {
+          "type": "string",
+          "xml": {
+            "name": "event-type"
+          }
+        },
+        "eventSubtype": {
+          "type": "string",
+          "xml": {
+            "name": "event-subtype"
+          }
+        },
+        "dateOfClaim": {
+          "type": "string",
+          "xml": {
+            "name": "date-of-claim"
+          }
+        },
+        "esjNumber": {
+          "type": "string",
+          "xml": {
+            "name": "esj-number"
+          }
+        },
+        "baLoNumber": {
+          "type": "string",
+          "xml": {
+            "name": "ba-lo-number"
+          }
+        },
+        "backdatedClaim": {
+          "type": "string",
+          "xml": {
+            "name": "backdated-claim"
+          }
+        },
+        "exIbClaimant": {
+          "type": "string",
+          "xml": {
+            "name": "ex-ib-claimant"
+          }
+        },
+        "failedAllWork": {
+          "type": "string",
+          "xml": {
+            "name": "failed-all-work"
+          }
+        },
+        "bwe": {
+          "type": "string"
+        },
+        "paymentCycle": {
+          "type": "string",
+          "xml": {
+            "name": "payment-cycle"
+          }
+        },
+        "fjr": {
+          "type": "string"
+        },
+        "fjrPaymentCycle": {
+          "type": "string",
+          "xml": {
+            "name": "fjr-payment-cycle"
+          }
+        },
+        "jsaOnlineClaim": {
+          "type": "string",
+          "xml": {
+            "name": "jsa-online-claim"
+          }
+        },
+        "postalSigningApplicable": {
+          "type": "string",
+          "xml": {
+            "name": "postal-signing-applicable"
+          }
+        },
+        "backdatedClaimDetails": {
+          "xml": {
+            "name": "backdated-claim-details"
+          },
+          "$ref": "#/definitions/BackdatedClaimDetails"
+        }
+      }
+    },
+    "JobseekerType": {
+      "type": "object",
+      "properties": {
+        "personalDetails": {
+          "xml": {
+            "name": "personal-details"
+          },
+          "$ref": "#/definitions/PersonalDetails"
+        },
+        "claimDetails": {
+          "xml": {
+            "name": "claim-details"
+          },
+          "$ref": "#/definitions/ClaimDetails"
+        },
+        "esActionCompletedDate": {
+          "type": "string",
+          "xml": {
+            "name": "es-action-completed-date"
+          }
+        }
+      }
+    },
+    "JointClaim": {
+      "type": "object",
+      "properties": {
+        "jointClaimStartDate": {
+          "type": "string",
+          "xml": {
+            "name": "joint-claim-start-date"
+          }
+        },
+        "exemptionPeriod": {
+          "xml": {
+            "name": "exemption-period"
+          },
+          "$ref": "#/definitions/ExemptionPeriod"
+        }
+      }
+    },
+    "Request": {
+      "type": "object",
+      "properties": {
+        "requestHeader": {
+          "xml": {
+            "name": "request-header"
+          },
+          "$ref": "#/definitions/RequestHeaderType"
+        },
+        "requestBody": {
+          "xml": {
+            "name": "request-body"
+          },
+          "$ref": "#/definitions/RequestBody"
+        }
+      },
+      "xml": {
+        "name": "request"
+      }
+    },
+    "Param": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "xml": {
+            "attribute": true
+          }
+        }
+      }
+    },
+    "RequestHeaderType": {
+      "type": "object",
+      "required": [
+        "benefitNumber",
+        "homeOfficeId",
+        "operator",
+        "operatorGrade",
+        "targetOfficeId"
+      ],
+      "properties": {
+        "operator": {
+          "type": "string"
+        },
+        "homeOfficeId": {
+          "type": "string",
+          "xml": {
+            "name": "home-office-id"
+          }
+        },
+        "targetOfficeId": {
+          "type": "string",
+          "xml": {
+            "name": "target-office-id"
+          }
+        },
+        "benefitNumber": {
+          "type": "string",
+          "xml": {
+            "name": "benefit-number"
+          }
+        },
+        "operatorGrade": {
+          "type": "string",
+          "xml": {
+            "name": "operator-grade"
+          }
+        },
+        "blockA": {
+          "type": "string",
+          "xml": {
+            "name": "block-a"
+          }
+        },
+        "blockB": {
+          "type": "string",
+          "xml": {
+            "name": "block-b"
+          }
+        },
+        "requestParams": {
+          "xml": {
+            "name": "request-params"
+          },
+          "$ref": "#/definitions/RequestParamsType"
+        }
+      }
+    },
+    "PersonalDetails": {
+      "type": "object",
+      "properties": {
+        "jobseekerNino": {
+          "type": "string",
+          "xml": {
+            "name": "jobseeker-nino"
+          }
+        },
+        "customerFlag": {
+          "type": "string",
+          "xml": {
+            "name": "customer-flag"
+          }
+        },
+        "clericalInterest": {
+          "type": "string",
+          "xml": {
+            "name": "clerical-interest"
+          }
+        },
+        "checkbrick": {
+          "type": "string"
+        },
+        "nominatedPayee": {
+          "type": "string",
+          "xml": {
+            "name": "nominated-payee"
+          }
+        },
+        "addressEffectiveDate": {
+          "type": "string",
+          "xml": {
+            "name": "address-effective-date"
+          }
+        },
+        "postage": {
+          "type": "string"
+        },
+        "corresAddressEffectiveDate": {
+          "type": "string",
+          "xml": {
+            "name": "corres-address-effective-date"
+          }
+        }
+      }
+    },
+    "BackdatedClaimDetails": {
+      "type": "object",
+      "properties": {
+        "backdatedClaimFrom": {
+          "type": "string",
+          "xml": {
+            "name": "backdated-claim-from"
+          }
+        },
+        "backdatedClaimTo": {
+          "type": "string",
+          "xml": {
+            "name": "backdated-claim-to"
+          }
+        },
+        "withdrawn": {
+          "type": "string"
+        },
+        "lmConditionSatisfied": {
+          "type": "string",
+          "xml": {
+            "name": "lm-condition-satisfied"
+          }
+        },
+        "lmAllowedFrom": {
+          "type": "string",
+          "xml": {
+            "name": "lm-allowed-from"
+          }
+        }
+      }
+    },
+    "RequestBody": {
+      "type": "object",
+      "properties": {
+        "jointClaim": {
+          "xml": {
+            "name": "joint-claim"
+          },
+          "$ref": "#/definitions/JointClaim"
+        },
+        "jobseeker": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JobseekerType"
+          }
+        }
+      }
+    },
+    "Response": {
+      "type": "object",
+      "properties": {
+        "responseHeader": {
+          "xml": {
+            "name": "response-header"
+          },
+          "$ref": "#/definitions/ResponseHeaderType"
+        },
+        "responseBody": {
+          "type": "object",
+          "xml": {
+            "name": "response-body"
+          }
+        }
+      },
+      "xml": {
+        "name": "response"
+      }
+    },
+    "Messages": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Message"
+          }
+        }
+      }
+    },
+    "Message": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "screen": {
+          "type": "string",
+          "xml": {
+            "attribute": true
+          }
+        }
+      }
+    },
+    "ResponseHeaderType": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/Result"
+        },
+        "requestParams": {
+          "xml": {
+            "name": "request-params"
+          },
+          "$ref": "#/definitions/RequestParams"
+        }
+      }
+    },
+    "RequestParams": {
+      "type": "object",
+      "properties": {
+        "param": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Param"
+          }
+        }
+      }
+    },
+    "Result": {
+      "type": "object",
+      "properties": {
+        "completionIndicator": {
+          "type": "string",
+          "xml": {
+            "name": "completion-indicator"
+          }
+        },
+        "category": {
+          "type": "string"
+        },
+        "systemErrors": {
+          "xml": {
+            "name": "system-errors"
+          },
+          "$ref": "#/definitions/SystemErrors"
+        },
+        "messages": {
+          "$ref": "#/definitions/Messages"
+        }
+      }
+    },
+    "SystemErrors": {
+      "type": "object",
+      "properties": {
+        "systemError": {
+          "type": "array",
+          "xml": {
+            "name": "system-error"
+          },
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "system-error"
+            }
+          }
+        }
+      }
+    },
+    "ErrorResponseHeaderType": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/definitions/Result"
+        },
+        "requestParams": {
+          "xml": {
+            "name": "request-params"
+          },
+          "$ref": "#/definitions/RequestParams"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "responseHeader": {
+          "xml": {
+            "name": "response-header"
+          },
+          "$ref": "#/definitions/ErrorResponseHeaderType"
+        },
+        "responseBody": {
+          "type": "object",
+          "xml": {
+            "name": "response-body"
+          }
+        }
+      },
+      "xml": {
+        "name": "response"
+      }
+    }
+  }
+}

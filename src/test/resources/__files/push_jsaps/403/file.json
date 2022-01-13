@@ -1,0 +1,12 @@
+{
+  "error": [
+    {
+      "code": "default-error-code",
+      "message": "one big SystemError"
+    },
+    {
+      "code": "default-error-code",
+      "message": "Just a warning"
+    }
+  ]
+}

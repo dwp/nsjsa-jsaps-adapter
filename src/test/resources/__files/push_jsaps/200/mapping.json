@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPattern": "/jsaps/v1/(.*)/claim"
+  },
+  "response": {
+    "status": 201,
+    "bodyFileName": "push_jsaps.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

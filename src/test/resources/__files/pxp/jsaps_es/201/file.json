@@ -1,0 +1,12 @@
+{
+  "responseHeader": {
+    "result": {
+      "completionIndicator": "true",
+      "category": null,
+      "systemErrors": null,
+      "messages": null
+    },
+    "requestParams": null
+  },
+  "responseBody": "A message we don't process"
+}

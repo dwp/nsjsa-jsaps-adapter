@@ -1,0 +1,19 @@
+{
+  "responseHeader": {
+    "result": {
+      "completionIndicator": "true",
+      "category": null,
+      "messages": {
+        "message": [
+          {
+            "value": "Just a warning",
+            "screen": "daScreen"
+          }
+        ]
+      }
+    },
+    "requestParams": null
+  },
+"responseBody": "A message we don't process"
+}
+
