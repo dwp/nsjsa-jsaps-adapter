@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uk.gov.dwp.jsa</groupId>
     <artifactId>jsaps-adapter-service</artifactId>
-    <version>1.17.0</version>
+    <version>1.18.0</version>
     <packaging>jar</packaging>
     <name>jsaps-adapter-service</name>
     <url>http://maven.apache.org</url>
     <description>JSAPS Adapter Service for DWP JSA</description>
     <properties>
-        <nsjsa-commons.version>1.15.0-101634f9</nsjsa-commons.version>
+        <nsjsa-commons.version>1.16.0-df633087</nsjsa-commons.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
